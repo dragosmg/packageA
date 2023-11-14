@@ -1,4 +1,4 @@
-# packageA (development version)
+# packageA 0.1.1
 
 * Updated the add-to-internal-cran workflow to use the GitHub Secret.
 
