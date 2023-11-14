@@ -8,12 +8,10 @@ on:
   push:
     tags:
       - v*
-  workflow_dispatch:
 
 jobs:
-  internal-cran-upload:
+  dispatch:
     runs-on: ubuntu-20.04
-    name: Internal CRAN Upload
     steps:
       - name: Trigger pkgcheck-action build
         uses: actions/github-script@v7
