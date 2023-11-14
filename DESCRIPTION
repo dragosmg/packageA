@@ -7,6 +7,8 @@ Description: What the package does (one paragraph).
 License: file LICENSE
 URL: https://github.com/dragosmg/packageA
 BugReports: https://github.com/dragosmg/packageA/issues
+Imports: 
+    glue
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
