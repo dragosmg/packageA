@@ -1,0 +1,30 @@
+# Add this workflow to any GitHub package repository you want to automatically
+# add to the internal-cran drat repo. If a secret for the internal-cran is
+# configured, pass the secret via the github-token parameter.
+
+name: Add package to internal-cran
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger pkgcheck-action build
+        uses: actions/github-script@v6
+        with:
+          # github-token: ${{ secrets.[internal-cran-secret] }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: 'dragosmg',
+              repo: 'internal-cran',
+              workflow_id: 'build.yaml',
+              ref: 'gh-pages',
+              inputs: {
+                repo: "${{ github.repository }}",
+                pkg_path: "packageA"
+              }
+            });
