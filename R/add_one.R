@@ -9,5 +9,10 @@
 #' add_one(1)
 #' add_one(1:2)
 add_one <- function(x) {
+
+  if (!is.numeric(x)) {
+    stop("`add_one() expects a numeric input")
+  }
+
   x + 1
 }
