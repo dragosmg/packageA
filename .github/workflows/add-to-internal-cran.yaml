@@ -11,12 +11,12 @@ on:
 
 jobs:
   dispatch:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Trigger pkgcheck-action build
         uses: actions/github-script@v7
         with:
-          github-token: ${{ secrets.INTERNAL_CRAN_SECRET }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             await github.rest.actions.createWorkflowDispatch({
               owner: 'dragosmg',
