@@ -10,4 +10,6 @@ test_that("add_one() errors with non-numeric input", {
   expect_error(add_one("a"))
   expect_error(add_one("2"))
 
+  expect_snapshot_error(add_one("a"))
+  expect_snapshot_error(add_one("2"))
 })

@@ -11,7 +11,10 @@
 add_one <- function(x) {
 
   if (!is.numeric(x)) {
-    stop("`add_one() expects a numeric input")
+    msg <- glue::glue(
+      "`add_one()` expects a numeric input. You have supplied a {class(x)}."
+    )
+    stop(msg, call. = FALSE)
   }
 
   x + 1
