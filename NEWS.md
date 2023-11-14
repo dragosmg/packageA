@@ -1,4 +1,4 @@
-# packageA (development version)
+# packageA 0.1.0
 
 * Added `add_one()` the first function.
 
