@@ -1,18 +1,6 @@
-# packageA (development version)
+# packageA 0.2.0
 
 * `add_two()`
-
-# packageA 0.1.7
-
-# packageA 0.1.6
-
-# packageA 0.1.5
-
-# packageA 0.1.4
-
-# packageA 0.1.3
-
-# packageA 0.1.2
 
 # packageA 0.1.1
 
