@@ -1,3 +1,7 @@
+# packageA 0.3.0
+
+* `add_three()`
+
 # packageA 0.2.0
 
 * `add_two()`
