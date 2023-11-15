@@ -1,4 +1,4 @@
-#' Add 1 to Numeric Vector
+#' Add one to numeric vector
 #'
 #' @param x numeric vector
 #'

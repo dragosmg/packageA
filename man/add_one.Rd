@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_one.R
 \name{add_one}
 \alias{add_one}
-\title{Add 1 to Numeric Vector}
+\title{Add one to numeric vector}
 \usage{
 add_one(x)
 }
@@ -13,7 +13,7 @@ add_one(x)
 a numeric vector
 }
 \description{
-Add 1 to Numeric Vector
+Add one to numeric vector
 }
 \examples{
 add_one(1)
