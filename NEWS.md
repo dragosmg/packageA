@@ -1,4 +1,4 @@
-# packageA (development version)
+# packageA 0.3.1
 
 * updated license
 
