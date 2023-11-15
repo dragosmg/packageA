@@ -1,5 +1,7 @@
 # packageA (development version)
 
+* updated license
+
 # packageA 0.3.0
 
 * `add_three()`
