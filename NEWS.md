@@ -1,3 +1,7 @@
+# packageA 0.3.5
+
+* trying with pkg
+
 # packageA 0.3.4
 
 * yet another test
