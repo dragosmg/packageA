@@ -1,3 +1,7 @@
+# packageA 0.3.2
+
+* empty release for testing
+
 # packageA 0.3.1
 
 * updated license
