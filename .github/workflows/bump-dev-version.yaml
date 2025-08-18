@@ -40,6 +40,11 @@ jobs:
           cat(paste("\nUpdated DESCRIPTION version:", ver, "\n"))
         shell: Rscript {0}
 
+      - name: Record the new package version
+        run: |
+          DESC_VERSION=$(R -e 'cat(paste(desc::desc_get_version()))' | tr -d '\n' | xargs)
+          echo "NEW_PKG_VERSION=${DESC_VERSION}" >> $GITHUB_ENV
+
       - name: Update `Date` field
         run: if (desc::desc_has_fields("Date")) desc::desc_set("Date", Sys.Date())
         shell: Rscript {0}
@@ -48,6 +53,6 @@ jobs:
         run: |
           git config --local user.name "$GITHUB_ACTOR"
           git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          git commit ./DESCRIPTION -m "Bump dev version"
+          git commit ./DESCRIPTION -m "auto bumped dev version to ${{ env.NEW_PKG_VERSION }}"
           git pull --ff-only
           git push origin
