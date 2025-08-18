@@ -32,7 +32,12 @@ jobs:
           packages: desc
 
       - name: Bump dev version in DESCRIPTION
-        run: desc::desc_bump_version("dev", normalize = TRUE)
+        run: |
+          ver <- desc::desc_get_version()
+          cat(paste("\nDESCRIPTION version:", ver, "\n"))
+          desc::desc_bump_version("dev", normalize = TRUE)
+          ver <- desc::desc_get_version()
+          cat(paste("\nUpdated DESCRIPTION version:", ver, "\n"))
         shell: Rscript {0}
 
       - name: Update `Date` field
