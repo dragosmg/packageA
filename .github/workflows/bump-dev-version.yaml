@@ -42,7 +42,7 @@ jobs:
 
       - name: Record the new package version
         run: |
-          DESC_VERSION=$(R -e 'cat(paste(desc::desc_get_version()))' | tr -d '\n' | xargs)
+          DESC_VERSION=$(R --slave -e 'cat(paste(desc::desc_get_version()))' | tr -d '\n' | xargs)
           echo "NEW_PKG_VERSION=${DESC_VERSION}" >> $GITHUB_ENV
 
       - name: Update `Date` field
