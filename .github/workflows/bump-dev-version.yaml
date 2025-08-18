@@ -11,11 +11,7 @@ permissions: read-all
 
 jobs:
   bump-dev-version:
-    if: |
-    github.event.pull_request.merged == true && !(
-      contains(github.event.commits[0].message, '[skip version bump]') ||
-      contains(github.event.head_commit.message, '[skip version bump]')
-    )
+    if: github.event.pull_request.merged == true && !(contains(github.event.commits[0].message, '[skip version bump]') || contains(github.event.head_commit.message, '[skip version bump]'))
     runs-on: ubuntu-latest
     permissions:
       contents: write
