@@ -3,7 +3,7 @@ on:
     branches:
       - main
 
-name: Bump dev version
+name: Bump dev version ⬆
 
 permissions: read-all
 
