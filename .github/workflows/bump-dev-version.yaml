@@ -29,7 +29,7 @@ jobs:
       - name: Install {desc}
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          package: desc
+          packages: desc
 
       - name: Bump dev version in DESCRIPTION
         run: desc::desc_bump_version("dev", normalize = TRUE)
@@ -42,7 +42,7 @@ jobs:
       - name: Commit and push changes
         run: |
           git config --local user.name "$GITHUB_ACTOR"
-          git cinfig --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git commit ./DESCRIPTION -m "Bump dev version"
           git pull -ff-only
           git push origin
