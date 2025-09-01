@@ -42,8 +42,7 @@ jobs:
           ver <- desc::desc_get_version()
           cat(paste("\nDESCRIPTION version:", ver, "\n"))
           ver_length <- ver |> as.character() |> stringr::str_split("\\.") |> unlist() |> length()
-          if (ver_length == 4) bump_version <- TRUE
-          if (bump_version) desc::desc_bump_version("dev", normalize = TRUE)
+          if (ver_length == 4) desc::desc_bump_version("dev", normalize = TRUE)
           ver <- desc::desc_get_version()
           cat(paste("\nUpdated DESCRIPTION version:", ver, "\n"))
         shell: Rscript {0}
