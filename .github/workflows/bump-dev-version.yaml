@@ -62,7 +62,7 @@ jobs:
           echo "CURRENT_PKG_VERSION=${{ env.CURRENT_PKG_VERSION }}"
           echo "NEW_PKG_VERSION=${{ env.NEW_PKG_VERSION }}"
       - name: Commit and push changes
-        if: ${{env.CURRENT_PKG_VERSION}} != ${{env.NEW_PKG_VERSION}}
+        if: ${{env.CURRENT_PKG_VERSION}} == ${{env.NEW_PKG_VERSION}}
         run: |
           git config --local user.name "Github Actions"
           git config --local user.email "$github-actions@users.noreply.github.com"
