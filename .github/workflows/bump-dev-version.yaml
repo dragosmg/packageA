@@ -67,6 +67,7 @@ jobs:
           if ["${{ env.CURRENT_PKG_VERSION }}" == "${{env.NEW_PKG_VERSION}}"]; then
               echo "Package version will not be increased"
           fi
+
       - name: Commit and push changes
         run: |
           git config --local user.name "Github Actions"
