@@ -10,8 +10,8 @@ permissions: read-all
 jobs:
   bump-dev-version:
     if: |
-      !(contains(github.event.commits[0].message, '[skip version bump]') ||
-        contains(github.event.head_commit.message, '[skip version bump]')
+      !(contains(github.event.commits[0].message, "[skip version bump]") ||
+        contains(github.event.head_commit.message, "[skip version bump]")
       )
     runs-on: ubuntu-latest
     permissions:
