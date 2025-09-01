@@ -6,8 +6,8 @@
 #' @export
 #'
 #' @examples
-#' add_three(2)
-#' add_three(3)
+#' add_four(2)
+#' add_four(3)
 add_four <- function(x) {
 
   if (!is.numeric(x)) {
