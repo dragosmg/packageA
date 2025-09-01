@@ -36,6 +36,7 @@ jobs:
         run: |
           DESC_VERSION=$(R --slave -e 'cat(paste(desc::desc_get_version()))' | tr -d '\n' | xargs)
           echo "CURRENT_PKG_VERSION=${DESC_VERSION}" >> $GITHUB_ENV
+
       - name: Bump dev version in DESCRIPTION
         run: |
           ver <- desc::desc_get_version()
