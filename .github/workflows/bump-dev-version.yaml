@@ -27,10 +27,10 @@ jobs:
         with:
           use-public-rspm: true
 
-      - name: Install {desc}
+      - name: Install {desc} and {stringr}
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          packages: desc
+          packages: desc, stringr
 
       - name: Bump dev version in DESCRIPTION
         run: |
