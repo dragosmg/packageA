@@ -56,6 +56,11 @@ jobs:
         run: if (desc::desc_has_fields("Date")) desc::desc_set("Date", Sys.Date())
         shell: Rscript {0}
 
+
+      - name: Debug env vars
+        run: |
+          echo "CURRENT_PKG_VERSION=${{ env.CURRENT_PKG_VERSION }}"
+          echo "NEW_PKG_VERSION=${{ env.NEW_PKG_VERSION }}"
       - name: Commit and push changes
         if: ${{env.CURRENT_PKG_VERSION}} != ${{env.NEW_PKG_VERSION}}
         run: |
