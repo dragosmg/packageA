@@ -16,6 +16,6 @@ a numeric vector
 Add four to numeric vector
 }
 \examples{
-add_three(2)
-add_three(3)
+add_four(2)
+add_four(3)
 }
