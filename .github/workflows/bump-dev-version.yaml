@@ -68,10 +68,9 @@ jobs:
               echo "Package version will not be increased"
           fi
       - name: Commit and push changes
-        if: ${{ env.CURRENT_PKG_VERSION != env.NEW_PKG_VERSION }}
         run: |
           git config --local user.name "Github Actions"
           git config --local user.email "$github-actions@users.noreply.github.com"
-          git commit ./DESCRIPTION -m "[skip version bump] dev version to ${{ env.NEW_PKG_VERSION }}"
+          git commit ./DESCRIPTION -m "[skip version bump] dev version to ${{ env.NEW_PKG_VERSION }}" || echo "No changes to commit"
           git pull --ff-only
           git push origin
