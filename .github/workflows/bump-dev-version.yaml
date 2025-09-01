@@ -32,12 +32,17 @@ jobs:
         with:
           packages: desc, stringr
 
+      - name: Record the current package version
+        run: |
+          DESC_VERSION=$(R --slave -e 'cat(paste(desc::desc_get_version()))' | tr -d '\n' | xargs)
+          echo "CURRENT_PKG_VERSION=${DESC_VERSION}" >> $GITHUB_ENV
       - name: Bump dev version in DESCRIPTION
         run: |
           ver <- desc::desc_get_version()
           cat(paste("\nDESCRIPTION version:", ver, "\n"))
           ver_length <- ver |> as.character() |> stringr::str_split("\\.") |> unlist() |> length()
-          if (ver_length == 4) desc::desc_bump_version("dev", normalize = TRUE)
+          if (ver_length == 4) bump_version <- TRUE
+          if (bump_version) desc::desc_bump_version("dev", normalize = TRUE)
           ver <- desc::desc_get_version()
           cat(paste("\nUpdated DESCRIPTION version:", ver, "\n"))
         shell: Rscript {0}
@@ -52,6 +57,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Commit and push changes
+        if: ${{CURRENT_PKG_VERSION}} != ${{NEW_PKG_VERSION}}
         run: |
           git config --local user.name "Github Actions"
           git config --local user.email "$github-actions@users.noreply.github.com"
