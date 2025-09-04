@@ -1,5 +1,5 @@
 #' Add four to numeric vector
-#' test
+#'
 #' @inheritParams add_one
 #'
 #' @return a numeric vector
