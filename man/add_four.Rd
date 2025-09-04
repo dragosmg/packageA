@@ -2,8 +2,7 @@
 % Please edit documentation in R/add_four.R
 \name{add_four}
 \alias{add_four}
-\title{Add four to numeric vector
-test}
+\title{Add four to numeric vector}
 \usage{
 add_four(x)
 }
@@ -15,7 +14,6 @@ a numeric vector
 }
 \description{
 Add four to numeric vector
-test
 }
 \examples{
 add_four(2)
