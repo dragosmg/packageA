@@ -1,4 +1,4 @@
-# packageA (development version)
+# packageA 0.4.0
 
 # packageA 0.3.8
 
