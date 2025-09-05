@@ -1,4 +1,5 @@
 url: https://dragosmg.github.io/packageA/
 template:
   bootstrap: 5
-
+  includes:
+    after_body: <script src="{{#site}}{{root}}doc-versions.js"></script>
