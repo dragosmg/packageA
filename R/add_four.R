@@ -11,13 +11,12 @@
 add_four <- function(x) {
 
   if (!is.numeric(x)) {
-    msg <- glue::glue(
-      "`add_four()` expects a numeric input. You have supplied a {class(x)}."
+    cli::cli_abort(
+      "{.fn add_four} expects a numeric input. You have supplied a {.obj_type_friendly x}."
     )
-    stop(msg, call. = FALSE)
   }
 
-  x %>%
-    add_one() %>%
+  x |>
+    add_one() |>
     add_three()
 }
