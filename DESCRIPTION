@@ -5,7 +5,7 @@ Authors@R:
     person("Dragoș", "Moldovan-Grünfeld", , "dragos.mold@gmail.com", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
 License: file LICENSE
-URL: https://github.com/dragosmg/packageA
+URL: https://github.com/dragosmg/packageA, https://dragosmg.github.io/packageA/
 BugReports: https://github.com/dragosmg/packageA/issues
 Imports: 
     glue,
