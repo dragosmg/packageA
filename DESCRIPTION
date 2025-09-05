@@ -1,18 +1,17 @@
 Package: packageA
 Title: What the Package Does (One Line, Title Case)
 Version: 0.4.0.9000
-Authors@R: 
+Authors@R:
     person("Dragoș", "Moldovan-Grünfeld", , "dragos.mold@gmail.com", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
 License: file LICENSE
 URL: https://github.com/dragosmg/packageA,
     https://dragosmg.github.io/packageA/
 BugReports: https://github.com/dragosmg/packageA/issues
-Imports: 
+Imports:
     cli,
-    glue,
-    magrittr
-Suggests: 
+    glue
+Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Encoding: UTF-8

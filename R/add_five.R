@@ -15,7 +15,7 @@ add_five <- function(x) {
     )
   }
 
-  x %>%
-    add_two() %>%
+  x |>
+    add_two() |>
     add_three()
 }
