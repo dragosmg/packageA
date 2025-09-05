@@ -3,4 +3,3 @@ template:
   bootstrap: 5
   includes:
     after_body: <script src="doc-versions.js"></script>
-  assets: pkgdown/assets
