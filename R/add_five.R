@@ -9,9 +9,10 @@
 #' add_five(2)
 #' add_five(3)
 add_five <- function(x) {
-    if (!is.numeric(x)) {
+  if (!is.numeric(x)) {
     cli::cli_abort(
-      "{.fn add_five} expects a numeric input. You have supplied a {.obj_type_friendly x}."
+      "{.fn add_five} expects a numeric input. You have supplied a \\
+      {.obj_type_friendly x}."
     )
   }
 
