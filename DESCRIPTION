@@ -1,11 +1,12 @@
 Package: packageA
 Title: What the Package Does (One Line, Title Case)
-Version: 0.3.8.9002
+Version: 0.3.8.9003
 Authors@R: 
     person("Dragoș", "Moldovan-Grünfeld", , "dragos.mold@gmail.com", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
 License: file LICENSE
-URL: https://github.com/dragosmg/packageA, https://dragosmg.github.io/packageA/
+URL: https://github.com/dragosmg/packageA,
+    https://dragosmg.github.io/packageA/
 BugReports: https://github.com/dragosmg/packageA/issues
 Imports: 
     glue,
