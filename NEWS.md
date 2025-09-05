@@ -1,5 +1,7 @@
 # packageA 0.4.1
 
+* definitely some important changes
+
 # packageA 0.4.0
 
 # packageA 0.3.8
