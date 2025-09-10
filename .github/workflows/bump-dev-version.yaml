@@ -91,6 +91,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Merge pull request
-        run: gh pr merge --auto --squash "version-bump-${{ env.NEW_PKG_VERSION }}" --subject "Bump dev version to ${{ env.NEW_PKG_VERSION }}"
+        run: gh pr merge --auto --squash "version-bump-${{ env.NEW_PKG_VERSION }}" --subject "[skip version bump] bumped dev version to ${{ env.NEW_PKG_VERSION }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
