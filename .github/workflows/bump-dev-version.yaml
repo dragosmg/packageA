@@ -86,11 +86,11 @@ jobs:
       - name: Create pull request
         # this uses the Github CLI to create a pull request
         # https://cli.github.com/manual/gh_pr_create
-        run: gh pr create -B main -H version-bump-${{ env.NEW_PKG_VERSION }} --title 'Bump dev version to ${{ env.NEW_PKG_VERSION }}' --body 'Created by Github Action'
+        run: gh pr create -B main -H version-bump-${{ env.NEW_PKG_VERSION }} --title "Bump dev version to ${{ env.NEW_PKG_VERSION }}" --body "Created by Github Action"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Merge pull request
-        run: gh pr merge version-bump-${{ env.NEW_PKG_VERSION }}
+        run: gh pr merge version-bump-${{ env.NEW_PKG_VERSION }} -A "$github-actions@users.noreply.github.com" -s -t "[skip version bump] dev version to ${{ env.NEW_PKG_VERSION }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
