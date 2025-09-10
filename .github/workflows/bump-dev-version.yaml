@@ -90,7 +90,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Approve pull request
+        run: gh pr review --approve "version-bump-${{ env.NEW_PKG_VERSION }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Merge pull request
-        run: gh pr merge version-bump-${{ env.NEW_PKG_VERSION }} -A "github-actions@users.noreply.github.com" -s -t "[skip version bump] dev version to ${{ env.NEW_PKG_VERSION }}"
+        run: gh pr merge "version-bump-${{ env.NEW_PKG_VERSION }}" -A "github-actions@users.noreply.github.com" -s -t "[skip version bump] dev version to ${{ env.NEW_PKG_VERSION }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
