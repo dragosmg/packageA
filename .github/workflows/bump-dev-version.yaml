@@ -71,5 +71,4 @@ jobs:
           git config --local user.email "$github-actions@users.noreply.github.com"
           git checkout -b version-bump-${{ env.NEW_PKG_VERSION }}
           git commit ./DESCRIPTION -m "[skip version bump] dev version to ${{ env.NEW_PKG_VERSION }}" || echo "No changes to commit"
-          git branch --set-upstream-to=origin/version-bump-${{ env.NEW_PKG_VERSION }}
-          git push
+          git push -u
