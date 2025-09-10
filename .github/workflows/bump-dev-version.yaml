@@ -69,7 +69,7 @@ jobs:
         run: |
           git config --local user.name "Github Actions"
           git config --local user.email "$github-actions@users.noreply.github.com"
-          git checkout -b ${{ env.NEW_PKG_VERSION }}"-version-bump
+          git checkout -b ${{ env.NEW_PKG_VERSION }}-version-bump
           git commit ./DESCRIPTION -m "[skip version bump] dev version to ${{ env.NEW_PKG_VERSION }}" || echo "No changes to commit"
           git pull --ff-only
           git push origin
