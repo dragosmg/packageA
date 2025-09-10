@@ -20,6 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      # needed for the Github Action workflow to open a PR
       pull-requests: write
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -38,11 +39,13 @@ jobs:
           packages: desc, stringr
 
       - name: Record the current package version
+        # record the current package version in an environment variable
         run: |
           DESC_VERSION=$(R --slave -e 'cat(paste(desc::desc_get_version()))' | tr -d '\n' | xargs)
           echo "CURRENT_PKG_VERSION=${DESC_VERSION}" >> $GITHUB_ENV
 
       - name: Bump dev version in DESCRIPTION
+        # only bump the version if it has 4 components (i.e. is dev)
         run: |
           ver <- desc::desc_get_version()
           cat(paste("\nDESCRIPTION version:", ver, "\n"))
@@ -53,20 +56,26 @@ jobs:
         shell: Rscript {0}
 
       - name: Record the new package version
+        # record the updated package version
         run: |
           DESC_VERSION=$(R --slave -e 'cat(paste(desc::desc_get_version()))' | tr -d '\n' | xargs)
           echo "NEW_PKG_VERSION=${DESC_VERSION}" >> $GITHUB_ENV
 
       - name: Update `Date` field
+        # bump the date if present
         run: if (desc::desc_has_fields("Date")) desc::desc_set("Date", Sys.Date())
         shell: Rscript {0}
 
-      - name: Debug env vars
+      - name: Debug environment variables
+        # print the env vars holding the versions (for debugging)
         run: |
           echo "CURRENT_PKG_VERSION=${{ env.CURRENT_PKG_VERSION }}"
           echo "NEW_PKG_VERSION=${{ env.NEW_PKG_VERSION }}"
 
       - name: Commit and push changes
+        # use the environment variables to write the commit message
+        # once merged `[skip version bump]` prevents this workflow from being
+        # re-triggered
         run: |
           git config --local user.name "Github Actions"
           git config --local user.email "$github-actions@users.noreply.github.com"
@@ -75,6 +84,13 @@ jobs:
           git push --set-upstream origin version-bump-${{ env.NEW_PKG_VERSION }}
 
       - name: Create pull request
-        run: gh pr create -B main -H version-bump-${{ env.NEW_PKG_VERSION }} --title 'Bump dev version to ${{ env.NEW_PKG_VERSION }}' --body 'Created by Github action'
+        # this uses the Github CLI to create a pull request
+        # https://cli.github.com/manual/gh_pr_create
+        run: gh pr create -B main -H version-bump-${{ env.NEW_PKG_VERSION }} --title 'Bump dev version to ${{ env.NEW_PKG_VERSION }}' --body 'Created by Github Action'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Merge pull request
+        run: gh pr merge version-bump-${{ env.NEW_PKG_VERSION }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
