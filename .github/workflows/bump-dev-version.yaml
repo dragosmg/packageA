@@ -71,4 +71,9 @@ jobs:
           git config --local user.email "$github-actions@users.noreply.github.com"
           git checkout -b version-bump-${{ env.NEW_PKG_VERSION }}
           git commit ./DESCRIPTION -m "[skip version bump] dev version to ${{ env.NEW_PKG_VERSION }}" || echo "No changes to commit"
-          git push -u
+          git push --set-upstream origin version-bump-${{ env.NEW_PKG_VERSION }}
+
+      - name: Create pull request
+        run: gh pr create -B main -H version-bump-${{ env.NEW_PKG_VERSION }} --title 'Bump dev version to ${{ env.NEW_PKG_VERSION }}' --body 'Created by Github action'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
