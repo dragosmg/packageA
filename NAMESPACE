@@ -3,5 +3,6 @@
 export(add_five)
 export(add_four)
 export(add_one)
+export(add_six)
 export(add_three)
 export(add_two)
