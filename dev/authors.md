@@ -7,7 +7,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/dragosmg/packageA/blob/update-pkgdown-0-4-1/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/dragosmg/packageA/blob/main/DESCRIPTION)
 
 Moldovan-Grünfeld D (2026). *packageA: What the Package Does (One Line,
 Title Case)*. R package version 0.4.1.9008,
