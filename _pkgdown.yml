@@ -2,3 +2,5 @@ url: https://dragosmg.github.io/packageA/
 template:
   bootstrap: 5
 
+development:
+  mode: auto
